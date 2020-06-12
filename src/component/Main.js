@@ -5,14 +5,16 @@ import Calender from "./calender/Calender";
 const Main = () => {
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-12">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <SideBar />
-                  <Calender />
+      <div className="wrapper">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-12">
+              <div className="card">
+                <div className="card-body">
+                  <div className="row">
+                    <SideBar />
+                    <Calender />
+                  </div>
                 </div>
               </div>
             </div>
