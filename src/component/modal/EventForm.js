@@ -1,4 +1,7 @@
 import React from "react";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const EventForm = () => {
   return (
@@ -39,20 +42,30 @@ const EventForm = () => {
                   </label>
                 </div>
                 <div className="form-group">
-                  <label className="control-label">Start</label>
-                  <input
-                    className="form-control form-white"
-                    type="date"
-                    name="event-start"
-                  />
+                  <label>Start</label>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <DatePicker
+                        showTimeSelect
+                        timeFormat="p"
+                        timeIntervals={1}
+                        dateFormat="Pp"
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="form-group">
-                  <label className="control-label">End</label>
-                  <input
-                    className="form-control form-white"
-                    type="date"
-                    name="event-start"
-                  />
+                  <label>End</label>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <DatePicker
+                        showTimeSelect
+                        timeFormat="p"
+                        timeIntervals={1}
+                        dateFormat="Pp"
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="form-group">
                   <label className="control-label">Choose Event Color</label>
