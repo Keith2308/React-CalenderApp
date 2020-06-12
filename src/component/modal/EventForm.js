@@ -77,14 +77,16 @@ const EventForm = (props) => {
                           timeIntervals={1}
                           dateFormat="Pp"
                           selected={startDate}
-                          onChange={onInputChange(startdate)}
+                          onChange={onInputChange("startdate")}
+                          className="form-control"
                         />
                       </div>
                     ) : (
                       <div className="col-md-12">
                         <DatePicker
                           selected={startDate}
-                          onChange={onInputChange(startdate)}
+                          onChange={onInputChange("startdate")}
+                          className="form-control"
                         />
                       </div>
                     )}
@@ -101,14 +103,16 @@ const EventForm = (props) => {
                           timeIntervals={1}
                           dateFormat="Pp"
                           selected={endDate}
-                          onChange={onInputChange(enddate)}
+                          onChange={onInputChange("enddate")}
+                          className="form-control"
                         />
                       </div>
                     ) : (
                       <div className="col-md-12">
                         <DatePicker
                           selected={endDate}
-                          onChange={onInputChange(enddate)}
+                          onChange={onInputChange("enddate")}
+                          className="form-control"
                         />
                       </div>
                     )}
