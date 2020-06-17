@@ -4,7 +4,7 @@ import AppContext from "../../context/App/appContext";
 
 const SideBar = () => {
   const appContext = useContext(AppContext);
-  const { events } = appContext;
+  const { events, selected } = appContext;
 
   return (
     <div className="col-lg-3">
@@ -22,6 +22,7 @@ const SideBar = () => {
               <div
                 className={`external-event bg-${event.bgColor}`}
                 key={event.id + index}
+                onClick={() => selected(event)}
               >
                 {event.title}
               </div>

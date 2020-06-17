@@ -1,4 +1,4 @@
-import { ADD_EVENT, GET_EVENTS } from "../types";
+import { ADD_EVENT, GET_EVENTS, SELECT_EVENT } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -11,6 +11,11 @@ export default (state, action) => {
       return {
         ...state,
         events: action.payload,
+      };
+    case SELECT_EVENT:
+      return {
+        ...state,
+        selectedEvent: action.payload,
       };
     default:
       return state;
