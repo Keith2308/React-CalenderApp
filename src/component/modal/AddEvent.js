@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EventForm from "./EventForm";
+import moment from "moment";
 
 const AddEvent = () => {
   const [color, setColor] = useState("");
@@ -47,8 +48,46 @@ const AddEvent = () => {
       setColor("");
     }
   };
-  const createEvent = () => {};
+  const createEvent = () => {
+    const event = setEvent(1);
+    console.log(event);
+    reset();
+  };
+
+  const setEvent = (id) => {
+    let start = "";
+    let end = "";
+    if (!checkbox) {
+      start = `${moment(startDate).format()}`;
+      end = `${moment(endDate).format()}`;
+    } else {
+      start = `${moment(startDate).format("YYYY-MM-DD")}`;
+      end = `${moment(endDate).format("YYYY-MM-DD")}`;
+    }
+
+    const event = {
+      id,
+      title: eventName,
+      start,
+      end,
+      bgColor: color,
+      backgroundColor: colorObj[color],
+    };
+
+    return event;
+  };
+
+  const reset = () => {
+    setColor("");
+    setEventName("");
+    setCheckBox(false);
+    setShowTime(false);
+    setStartDate(new Date());
+    setEndDate(new Date());
+  };
+
   const closeModal = () => {};
+
   return (
     <div>
       <EventForm
@@ -67,7 +106,6 @@ const AddEvent = () => {
         colors={colors}
         handleChange={handleChange}
         eventType={createEvent}
-        colorObj={colorObj}
         buttonText="Save"
       />
     </div>
