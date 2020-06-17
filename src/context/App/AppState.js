@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import AppReducer from "./appReducer";
 import AppContext from "./appContext";
 import { useLocalStorage } from "../../hooks/storage";
-import { ADD_EVENT } from "../types";
+import { ADD_EVENT, GET_EVENTS } from "../types";
 
 const AppState = (props) => {
   const initialState = {
@@ -24,6 +24,16 @@ const AppState = (props) => {
     });
   };
 
+  //Get All Event from storage
+  const getEvents = () => {
+    if (item) {
+      dispatch({
+        type: GET_EVENTS,
+        payload: item,
+      });
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -31,6 +41,7 @@ const AppState = (props) => {
         colors: state.colors,
         selectedEvent: state.selectedEvent,
         addEvent,
+        getEvents,
       }}
     >
       {props.children}
