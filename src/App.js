@@ -4,11 +4,14 @@ import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import "./App.css";
 import Main from "./component/Main";
+import AppState from "./context/App/AppState";
 
 const App = () => {
   return (
     <>
-      <Main />
+      <AppState>
+        <Main />
+      </AppState>
     </>
   );
 };
