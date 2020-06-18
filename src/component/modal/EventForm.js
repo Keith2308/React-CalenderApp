@@ -24,18 +24,12 @@ const EventForm = (props) => {
   } = props;
   return (
     <div>
-      <div className="modal" id={modalId} tabIndex="-1" role="dialog">
+      <div className="modal fade" id={modalId} tabIndex="-1" role="dialog">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">{title}</h5>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-                onClick={closeModal}
-              >
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={closeModal}>
                 X
               </button>
             </div>
@@ -53,17 +47,8 @@ const EventForm = (props) => {
                   />
                 </div>
                 <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    name="checkbox"
-                    value={checbox}
-                    checked={checbox}
-                    onChange={onCheckBoxChange}
-                  />
-                  <label className="control-label">
-                    All-day event? (optional)
-                  </label>
+                  <input className="form-check-input" type="checkbox" name="checkbox" value={checbox} checked={checbox} onChange={onCheckBoxChange} />
+                  <label className="control-label">All-day event? (optional)</label>
                 </div>
                 <div className="form-group">
                   <label>Start</label>
@@ -82,11 +67,7 @@ const EventForm = (props) => {
                       </div>
                     ) : (
                       <div className="col-md-12">
-                        <DatePicker
-                          selected={startDate}
-                          onChange={onInputChange("startdate")}
-                          className="form-control"
-                        />
+                        <DatePicker selected={startDate} onChange={onInputChange("startdate")} className="form-control" />
                       </div>
                     )}
                   </div>
@@ -108,22 +89,14 @@ const EventForm = (props) => {
                       </div>
                     ) : (
                       <div className="col-md-12">
-                        <DatePicker
-                          selected={endDate}
-                          onChange={onInputChange("enddate")}
-                          className="form-control"
-                        />
+                        <DatePicker selected={endDate} onChange={onInputChange("enddate")} className="form-control" />
                       </div>
                     )}
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="control-label">Choose Event Color</label>
-                  <select
-                    className="form-control form-white"
-                    name="event-color"
-                    onChange={handleChange}
-                  >
+                  <select className="form-control form-white" name="event-color" onChange={handleChange}>
                     <option>Select Color</option>
                     {colors.map((color) => (
                       <option value={color.toLowerCase()} key={color}>
@@ -144,12 +117,7 @@ const EventForm = (props) => {
               >
                 {buttonText}
               </button>
-              <button
-                type="button"
-                className="btn btn-light cancel"
-                data-dismiss="modal"
-                onClick={closeModal}
-              >
+              <button type="button" className="btn btn-light cancel" data-dismiss="modal" onClick={closeModal}>
                 Close
               </button>
             </div>

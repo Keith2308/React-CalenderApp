@@ -3,7 +3,7 @@ import React from "react";
 const SelectModal = () => {
   return (
     <div>
-      <div className="modal" id="selection-modal" tabIndex="-1" role="dialog">
+      <div className="modal fade" id="selection-modal" tabIndex="-1" role="dialog">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
@@ -14,7 +14,7 @@ const SelectModal = () => {
             </div>
             <div className="modal-body">
               <div className="text-center">
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#edit-event" data-dismiss="modal">
                   Edit Event
                 </button>
                 &nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp;

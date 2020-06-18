@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import EventForm from "./EventForm";
 import moment from "moment";
 import AppContext from "../../context/App/appContext";
 
-const AddEvent = () => {
+const EditEvent = () => {
   const [color, setColor] = useState("");
   const [eventName, setEventName] = useState("");
   const [checkbox, setCheckBox] = useState(false);
@@ -12,9 +12,8 @@ const AddEvent = () => {
   const [endDate, setEndDate] = useState(new Date());
 
   const appContext = useContext(AppContext);
-  const { addEvent, events, colors } = appContext;
+  const { events, colors, selectedEvent } = appContext;
 
-  // const colors = ["Primary", "Success", "Info", "Warning", "Danger"];
   const colorObj = {
     primary: "#0275d8",
     success: "#5cb85c",
@@ -22,6 +21,8 @@ const AddEvent = () => {
     warning: "#f0ad4e",
     danger: "#d9534f",
   };
+
+  useEffect(() => {});
 
   const inputChange = (e) => {
     setEventName(e.target.value);
@@ -52,11 +53,8 @@ const AddEvent = () => {
       setColor("");
     }
   };
-  const createEvent = () => {
-    const event = setEvent(events.length + 1);
-    addEvent(event);
-    reset();
-  };
+
+  const editEvent = () => {};
 
   const setEvent = (id) => {
     let start = "";
@@ -81,24 +79,13 @@ const AddEvent = () => {
     return event;
   };
 
-  const reset = () => {
-    setColor("");
-    setEventName("");
-    setCheckBox(false);
-    setShowTime(false);
-    setStartDate(new Date());
-    setEndDate(new Date());
-  };
-
-  const closeModal = () => {
-    reset();
-  };
+  const closeModal = () => {};
 
   return (
     <div>
       <EventForm
-        modalId="add-event"
-        title="Add Event"
+        modalId="edit-event"
+        title="Edit Event"
         closeModal={closeModal}
         eventname={eventName}
         inputChange={inputChange}
@@ -111,11 +98,11 @@ const AddEvent = () => {
         color={color}
         colors={colors}
         handleChange={handleChange}
-        eventType={createEvent}
-        buttonText="Save"
+        eventType={editEvent}
+        buttonText="Update"
       />
     </div>
   );
 };
 
-export default AddEvent;
+export default EditEvent;
