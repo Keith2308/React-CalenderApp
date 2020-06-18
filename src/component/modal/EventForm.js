@@ -96,7 +96,7 @@ const EventForm = (props) => {
                 </div>
                 <div className="form-group">
                   <label className="control-label">Choose Event Color</label>
-                  <select className="form-control form-white" name="event-color" onChange={handleChange}>
+                  <select className="form-control form-white" name="event-color" value={color} onChange={handleChange}>
                     <option>Select Color</option>
                     {colors.map((color) => (
                       <option value={color.toLowerCase()} key={color}>
