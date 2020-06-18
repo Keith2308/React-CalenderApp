@@ -12,15 +12,15 @@ const EditEvent = () => {
   const [endDate, setEndDate] = useState(new Date());
 
   const appContext = useContext(AppContext);
-  const { events, colors, selectedEvent } = appContext;
+  const { events, colors, selectedEvent, colorObj } = appContext;
 
-  const colorObj = {
-    primary: "#0275d8",
-    success: "#5cb85c",
-    info: "#5bc0de",
-    warning: "#f0ad4e",
-    danger: "#d9534f",
-  };
+  //   const colorObj = {
+  //     primary: "#0275d8",
+  //     success: "#5cb85c",
+  //     info: "#5bc0de",
+  //     warning: "#f0ad4e",
+  //     danger: "#d9534f",
+  //   };
 
   useEffect(() => {
     if (Object.keys(selectedEvent).length) {
@@ -118,6 +118,7 @@ const EditEvent = () => {
         colors={colors}
         handleChange={handleChange}
         eventType={editEvent}
+        colorObj={colorObj}
         buttonText="Update"
       />
     </div>
