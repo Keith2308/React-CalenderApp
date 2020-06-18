@@ -22,7 +22,26 @@ const EditEvent = () => {
     danger: "#d9534f",
   };
 
-  useEffect(() => {});
+  useEffect(() => {
+    if (Object.keys(selectedEvent).length) {
+      setColor(selectedEvent.bgColor);
+      setEventName(selectedEvent.title);
+      setCheckBox(selectedEvent.allDay);
+      let start = "";
+      let end = "";
+      if (!selectedEvent.allDay) {
+        setShowTime(false);
+        start = `${moment(new Date(selectedEvent.start)).format()}`;
+        end = `${moment(new Date(selectedEvent.end)).format()}`;
+      } else {
+        start = `${moment(new Date(selectedEvent.start)).format("YYYY-MM-DD")}`;
+        end = `${moment(new Date(selectedEvent.end)).format("YYYY-MM-DD")}`;
+      }
+      setStartDate(new Date(start));
+      setEndDate(new Date(end));
+    }
+    // eslint-disable-next-line
+  }, [selectedEvent, events]);
 
   const inputChange = (e) => {
     setEventName(e.target.value);
