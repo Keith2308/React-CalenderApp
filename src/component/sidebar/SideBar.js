@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AddEvent from "../modal/AddEvent";
 import AppContext from "../../context/App/appContext";
+import SelectModal from "../modal/SelectModal";
 
 const SideBar = () => {
   const appContext = useContext(AppContext);
@@ -8,11 +9,7 @@ const SideBar = () => {
 
   return (
     <div className="col-lg-3">
-      <button
-        data-toggle="modal"
-        data-target="#add-event"
-        className="btn btn-primary btn-block"
-      >
+      <button data-toggle="modal" data-target="#add-event" className="btn btn-primary btn-block">
         Create New Event
       </button>
       <div className="m-t-20">
@@ -23,6 +20,8 @@ const SideBar = () => {
                 className={`external-event bg-${event.bgColor}`}
                 key={event.id + index}
                 onClick={() => selected(event)}
+                data-toggle="modal"
+                data-target="#selection-modal"
               >
                 {event.title}
               </div>
@@ -31,6 +30,7 @@ const SideBar = () => {
       </div>
 
       <AddEvent />
+      <SelectModal />
     </div>
   );
 };
