@@ -12,7 +12,7 @@ const EditEvent = () => {
   const [endDate, setEndDate] = useState(new Date());
 
   const appContext = useContext(AppContext);
-  const { events, colors, selectedEvent, colorObj } = appContext;
+  const { events, colors, selectedEvent, colorObj, editSelectedEvent } = appContext;
 
   //   const colorObj = {
   //     primary: "#0275d8",
@@ -73,7 +73,10 @@ const EditEvent = () => {
     }
   };
 
-  const editEvent = () => {};
+  const editEvent = () => {
+    const event = setEvent(selectedEvent.id);
+    editSelectedEvent(event);
+  };
 
   const setEvent = (id) => {
     let start = "";
