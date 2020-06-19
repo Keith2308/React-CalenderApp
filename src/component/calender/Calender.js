@@ -4,6 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import AppContext from "../../context/App/appContext";
+import Toast from "../toast/Toast";
 
 const Calender = () => {
   const appContext = useContext(AppContext);
@@ -37,6 +38,7 @@ const Calender = () => {
           eventLimit="true"
         />
       </div>
+      <Toast />
     </div>
   );
 };
