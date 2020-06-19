@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppContext from "../../context/App/appContext";
 
 const SelectModal = () => {
+  const appContext = useContext(AppContext);
+  const { selectedEvent, deleteSelectedEvent } = appContext;
   return (
     <div>
       <div className="modal fade" id="selection-modal" tabIndex="-1" role="dialog">
@@ -18,7 +21,7 @@ const SelectModal = () => {
                   Edit Event
                 </button>
                 &nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp;
-                <button type="button" className="btn btn-danger" data-dismiss="modal">
+                <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => deleteSelectedEvent(selectedEvent)}>
                   Delete Event
                 </button>
               </div>
