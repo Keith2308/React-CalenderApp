@@ -93,6 +93,7 @@ const AddEvent = () => {
   const reset = () => {
     setColor("");
     setEventName("");
+    setDescription("");
     setCheckBox(false);
     setShowTime(false);
     setStartDate(new Date());
