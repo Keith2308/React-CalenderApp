@@ -6,6 +6,7 @@ import AppContext from "../../context/App/appContext";
 const AddEvent = () => {
   const [color, setColor] = useState("");
   const [eventName, setEventName] = useState("");
+  const [description, setDescription] = useState("");
   const [checkbox, setCheckBox] = useState(false);
   const [showtime, setShowTime] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
@@ -72,6 +73,7 @@ const AddEvent = () => {
     const event = {
       id,
       title: eventName,
+      description,
       start,
       end,
       allDay: checkbox,
@@ -100,6 +102,7 @@ const AddEvent = () => {
       <EventForm
         modalId="add-event"
         title="Add Event"
+        description={description}
         closeModal={closeModal}
         eventname={eventName}
         inputChange={inputChange}
