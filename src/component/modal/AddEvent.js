@@ -25,7 +25,13 @@ const AddEvent = () => {
   // };
 
   const inputChange = (e) => {
-    setEventName(e.target.value);
+    const attributeName = e.target.getAttribute("name");
+    if (attributeName === "event-name") {
+      setEventName(e.target.value);
+    }
+    if (attributeName === "description") {
+      setDescription(e.target.value);
+    }
   };
 
   const onCheckBoxChange = (e) => {
