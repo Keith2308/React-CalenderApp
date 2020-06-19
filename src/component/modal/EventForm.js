@@ -66,23 +66,17 @@ const EventForm = (props) => {
                 <div className="form-group">
                   <label>Start</label>
                   <div className="row">
-                    {!showtime ? (
-                      <div className="col-md-12">
-                        <DatePicker
-                          showTimeSelect
-                          timeFormat="p"
-                          timeIntervals={1}
-                          dateFormat="Pp"
-                          selected={startDate}
-                          onChange={onInputChange("startdate")}
-                          className="form-control"
-                        />
-                      </div>
-                    ) : (
-                      <div className="col-md-12">
-                        <DatePicker selected={startDate} onChange={onInputChange("startdate")} className="form-control" />
-                      </div>
-                    )}
+                    <div className="col-md-12">
+                      <DatePicker
+                        showTimeSelect
+                        timeFormat="p"
+                        timeIntervals={1}
+                        dateFormat="Pp"
+                        selected={startDate}
+                        onChange={onInputChange("startdate")}
+                        className="form-control"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="form-group">

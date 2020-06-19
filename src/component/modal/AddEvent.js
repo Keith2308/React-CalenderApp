@@ -66,13 +66,11 @@ const AddEvent = () => {
   };
 
   const setEvent = (id) => {
-    let start = "";
+    const start = `${moment(startDate).format()}`;
     let end = "";
     if (!checkbox) {
-      start = `${moment(startDate).format()}`;
       end = `${moment(endDate).format()}`;
     } else {
-      start = `${moment(startDate).format("YYYY-MM-DD")}`;
       end = `${moment(endDate).format("YYYY-MM-DD")}`;
     }
 
