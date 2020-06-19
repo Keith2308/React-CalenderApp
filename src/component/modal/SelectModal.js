@@ -3,7 +3,12 @@ import AppContext from "../../context/App/appContext";
 
 const SelectModal = () => {
   const appContext = useContext(AppContext);
-  const { selectedEvent, deleteSelectedEvent } = appContext;
+  const { selectedEvent, deleteSelectedEvent, selected } = appContext;
+
+  const deleteSelected = (event) => {
+    deleteSelectedEvent(event);
+    selected({});
+  };
   return (
     <div>
       <div className="modal fade" id="selection-modal" tabIndex="-1" role="dialog">
@@ -21,7 +26,7 @@ const SelectModal = () => {
                   Edit Event
                 </button>
                 &nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp;
-                <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => deleteSelectedEvent(selectedEvent)}>
+                <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => deleteSelected(selectedEvent)}>
                   Delete Event
                 </button>
               </div>
