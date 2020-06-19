@@ -34,6 +34,7 @@ const Calender = () => {
           }}
           events={events}
           eventClick={handleEventClick}
+          eventLimit="true"
         />
       </div>
     </div>
