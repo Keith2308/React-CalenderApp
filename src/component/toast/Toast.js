@@ -6,19 +6,18 @@ import moment from "moment";
 
 const Toast = () => {
   const appContext = useContext(AppContext);
-  const { activeEvents, events } = appContext;
+  const { activeEvents, events, activeCalendarEvents } = appContext;
 
   useEffect(() => {
     addEvent();
-  });
+    // eslint-disable-next-line
+  }, [events]);
 
   const addEvent = () => {
     if (events.length) {
       for (const event of events) {
         const startEventDate = `${moment(new Date(event.start)).format("YYYY-MM-DDTHH:ss")}`;
-        console.log(startEventDate);
         const now = moment(new Date()).format("YYYY-MM-DDTHH:ss");
-        console.log(now);
         if (now === startEventDate) {
           activeEvents(event);
         }
@@ -28,12 +27,14 @@ const Toast = () => {
   return (
     <>
       <div className="notification-container notification-bottom-right">
-        <div className="notification toast" style={{ backgroundColor: "red" }}>
-          <button>X</button>
-          <p className="notification-title">Notification</p>
-          <p className="notification-subtitle">Overdue 5 mins ago</p>
-          <p className="notification-message">This is a description</p>
-        </div>
+        {activeCalendarEvents.map((e, i) => (
+          <div key={i} className="notification toast" style={{ backgroundColor: e.backgroundColor }}>
+            <button>X</button>
+            <p className="notification-title">{e.title}</p>
+            <p className="notification-subtitle">Overdue {moment(e.start).fromNow()}</p>
+            <p className="notification-message">{e.description}</p>
+          </div>
+        ))}
       </div>
     </>
   );

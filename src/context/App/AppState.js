@@ -95,6 +95,8 @@ const AppState = (props) => {
     });
   };
 
+  console.log(state.events);
+
   return (
     <AppContext.Provider
       value={{
