@@ -89,13 +89,18 @@ const AppState = (props) => {
       type: DELETE_EVENT,
       payload: newEventsArray,
     });
+    // dispatch({
+    //   type: SELECT_EVENT,
+    //   payload: {},
+    // });
+
+    const activeEventsArray = active.filter((e) => e.id !== event.id);
+    setActiveEvents(activeEventsArray);
     dispatch({
-      type: SELECT_EVENT,
-      payload: {},
+      type: ACTIVE_EVENTS,
+      payload: activeEventsArray,
     });
   };
-
-  console.log(state.events);
 
   return (
     <AppContext.Provider
