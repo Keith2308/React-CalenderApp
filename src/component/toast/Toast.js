@@ -9,9 +9,15 @@ const Toast = () => {
   const { activeEvents, events, activeCalendarEvents, deleteSelectedEvent, selected } = appContext;
 
   useEffect(() => {
-    addEvent();
+    const interval = setInterval(() => {
+      addEvent();
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
     // eslint-disable-next-line
-  }, [events]);
+  });
 
   const deleteEvent = (event) => {
     deleteSelectedEvent(event);
@@ -23,7 +29,7 @@ const Toast = () => {
       for (const event of events) {
         const startEventDate = `${moment(new Date(event.start)).format("YYYY-MM-DDTHH:ss")}`;
         const now = moment(new Date()).format("YYYY-MM-DDTHH:ss");
-        if (now !== startEventDate) {
+        if (now === startEventDate) {
           activeEvents(event);
         }
       }
