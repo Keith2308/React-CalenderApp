@@ -22,6 +22,12 @@ const Toast = () => {
     // eslint-disable-next-line
   });
 
+  useEffect(() => {
+    if (Object.keys(getActiveEvent).length) {
+      //play sound
+    }
+  }, [getActiveEvent]);
+
   const deleteEvent = (event) => {
     deleteSelectedEvent(event);
     selected({});
