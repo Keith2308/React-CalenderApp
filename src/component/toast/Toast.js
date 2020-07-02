@@ -3,10 +3,13 @@ import "./Toast.css";
 
 import AppContext from "../../context/App/appContext";
 import moment from "moment";
+import { useLocalStorage } from "../../hooks/storage";
 
 const Toast = () => {
   const appContext = useContext(AppContext);
   const { activeEvents, events, activeCalendarEvents, deleteSelectedEvent, selected } = appContext;
+
+  const [getActiveEvent, setActiveEvent] = useLocalStorage("eventActive");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,6 +34,7 @@ const Toast = () => {
         const now = moment(new Date()).format("YYYY-MM-DDTHH:ss");
         if (now === startEventDate) {
           activeEvents(event);
+          setActiveEvent(event);
         }
       }
     }
