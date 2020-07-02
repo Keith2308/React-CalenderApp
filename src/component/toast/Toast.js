@@ -27,7 +27,7 @@ const Toast = () => {
   });
 
   useEffect(() => {
-    if (Object.keys(getActiveEvent).length) {
+    if (getActiveEvent && Object.keys(getActiveEvent).length) {
       //play sound
       sound.play();
     }
