@@ -8,12 +8,16 @@ import Toast from "../toast/Toast";
 
 const Calender = () => {
   const appContext = useContext(AppContext);
-  const { events, getEvents, selected } = appContext;
+  const { events, getEvents, selected, getActiveEvents, activeCalenderEvents } = appContext;
 
   useEffect(() => {
     getEvents();
     // eslint-disable-next-line
   }, [events]);
+
+  useEffect(() => {
+    getActiveEvents();
+  }, [activeCalenderEvents]);
 
   const handleEventClick = (info) => {
     const event = events.find((e) => e.id === parseInt(info.event.id, 10));

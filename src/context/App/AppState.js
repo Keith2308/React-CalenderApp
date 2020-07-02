@@ -3,7 +3,7 @@ import _ from "lodash";
 import AppReducer from "./appReducer";
 import AppContext from "./appContext";
 import { useLocalStorage } from "../../hooks/storage";
-import { ADD_EVENT, GET_EVENTS, SELECT_EVENT, EDIT_EVENT, DELETE_EVENT, ACTIVE_EVENTS } from "../types";
+import { ADD_EVENT, GET_EVENTS, SELECT_EVENT, EDIT_EVENT, DELETE_EVENT, ACTIVE_EVENTS, GET_ACTIVE_EVENTS } from "../types";
 
 const AppState = (props) => {
   const initialState = {
@@ -54,6 +54,16 @@ const AppState = (props) => {
       dispatch({
         type: GET_EVENTS,
         payload: item,
+      });
+    }
+  };
+
+  // Get Active calender Event
+  const getActiveEvents = () => {
+    if (active) {
+      dispatch({
+        type: GET_ACTIVE_EVENTS,
+        payload: active,
       });
     }
   };
@@ -119,6 +129,7 @@ const AppState = (props) => {
         editSelectedEvent,
         deleteSelectedEvent,
         activeEvents,
+        getActiveEvents,
       }}
     >
       {props.children}
