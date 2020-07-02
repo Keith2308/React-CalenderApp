@@ -1,9 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import "./Toast.css";
+import UIfx from "uifx";
 
 import AppContext from "../../context/App/appContext";
 import moment from "moment";
 import { useLocalStorage } from "../../hooks/storage";
+import notificationSound from "../../assets/notification.mp3";
+
+const sound = new UIfx(notificationSound);
 
 const Toast = () => {
   const appContext = useContext(AppContext);
@@ -25,8 +29,9 @@ const Toast = () => {
   useEffect(() => {
     if (Object.keys(getActiveEvent).length) {
       //play sound
+      sound.play();
     }
-  }, [getActiveEvent]);
+  }, [getActiveEvent, sound]);
 
   const deleteEvent = (event) => {
     deleteSelectedEvent(event);

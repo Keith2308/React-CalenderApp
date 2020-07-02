@@ -24,6 +24,7 @@ const AppState = (props) => {
   const [item, setValue] = useLocalStorage("events");
   const [, setSelectedItem] = useLocalStorage("selectedEvent");
   const [active, setActiveEvents] = useLocalStorage("activeCalendarEvents");
+  const [, setActiveEvent] = useLocalStorage("activeEvent");
 
   const addEvent = (event) => {
     let userEvents = [...state.events];
@@ -100,6 +101,8 @@ const AppState = (props) => {
       type: ACTIVE_EVENTS,
       payload: activeEventsArray,
     });
+
+    setActiveEvent({});
   };
 
   return (
